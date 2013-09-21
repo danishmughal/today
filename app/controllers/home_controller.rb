@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
 	def home
+		if !current_user.nil?
+			redirect_to '/feed'
+		end
 	end
 
 	def feed
@@ -8,8 +11,6 @@ class HomeController < ApplicationController
 		else
 			redirect_to '/'
 		end
-
-
 
 		# Weather Stuff ==============================
 		api_key = '637b5c553f2006b7'
@@ -22,7 +23,6 @@ class HomeController < ApplicationController
 
 		# Stories ===========================
 		@stories = @graph.fql_query("SELECT post_id, actor_id, target_id, message FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid = me() AND type = 'newsfeed') AND type=46 LIMIT 50")
-
 
 
 		# Events =============================

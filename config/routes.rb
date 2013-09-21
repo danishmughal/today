@@ -1,8 +1,8 @@
 Today::Application.routes.draw do
 
-  root to: 'home#home'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  root to: 'home#home'
 
   get '/feed' => 'home#feed'
 

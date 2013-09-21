@@ -247,13 +247,12 @@ Devise.setup do |config|
 
   # O-auth stuff
   require "omniauth-facebook"
-
+  
   if Rails.env.development?
     config.omniauth :facebook, "603338849709935", "60bee6977c910b0a0a0da9123e4d7ece", 
       {:scope => "email, offline_access, read_stream, read_friendlists, read_mailbox, user_events, user_birthday, user_friends"} 
   elsif Rails.env.production?
-    # config.omniauth :facebook, "429979830443991", "0bd2e98ed054611322aa5147461e2b9e",
-    config.omniauth :facebook, "603338849709935", "60bee6977c910b0a0a0da9123e4d7ece", 
-      {:scope => "email, offline_access, read_stream, read_friendlists, read_mailbox, user_events, user_birthday, user_friends", :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+    config.omniauth :facebook, "429979830443991", "0bd2e98ed054611322aa5147461e2b9e",
+      {:scope => 'email, offline_access, read_stream, read_friendlists, read_mailbox, user_events, user_birthday, user_friends', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
   end
 end
