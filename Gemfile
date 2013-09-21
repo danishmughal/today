@@ -48,6 +48,8 @@ gem 'omniauth-facebook'
 # Koala
 gem "koala", "~> 1.7.0rc1"
 
+# Weather
+gem 'wunderground'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
