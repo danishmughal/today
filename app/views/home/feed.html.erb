@@ -1,3 +1,5 @@
+<%= image_tag(@current_user_picture) %>
+
 <h1> Today </h1>
 
 	<h3> Your feed </h3>
@@ -7,9 +9,19 @@
 			Low: <%= @lowF + "F, " + @lowC + "C" %>
 
 		<h4> Sentiments </h4>
-
+			Overall mood of your feed: <%= @overall_sentiment %>
 		<h4> Stories </h4>
-
+			<% counter = 0 %>
+			<% @stories.each do |s| %>
+				<%= s["message"] %> - <%= s["actor_id"] %> - <%= @sentiments[counter] %><br>
+				<% counter += 1 %>
+			<% end %>
 		<h4> Mosaic </h4>
 
 		<h4> Events </h4>
+			<br>
+			<% @events_attending.each do |e| %>
+				Event Title: <%= e["name"] %>
+				When: <%= e["start_time"] %>
+				Where: <%= e["location"] %><br>
+			<% end %>
