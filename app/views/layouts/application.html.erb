@@ -8,6 +8,18 @@
 </head>
 <body>
 
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", 'users/sign_out', :method => :delete, id: "sign_out" %>
+    <% else %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <% end %>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>

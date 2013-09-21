@@ -1,4 +1,11 @@
 Today::Application.routes.draw do
+
+  root to: 'home#home'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  get '/feed' => 'home#feed'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
