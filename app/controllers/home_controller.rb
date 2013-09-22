@@ -38,10 +38,7 @@ class HomeController < ApplicationController
 		# Sentiment analysis for individual stories ========================
 		require 'open-uri' # uri-encoding
 		alchemykey = "ee22e9e992f73d817539a187c1c406806dac81e4"
-
 		@sentiments = []
-		textinput = URI::encode("I hate this world.")
-		alchemycall = JSON.parse(open("http://access.alchemyapi.com/calls/text/TextGetTextSentiment?apikey=#{alchemykey}&outputMode=json&text=#{textinput}").read())
 
 =begin
 		counter = 0
