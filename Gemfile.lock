@@ -26,6 +26,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    alchemy-api-rb (0.2.1)
+      faraday (~> 0.8.1)
     annotate (2.5.0)
       rake
     arel (4.0.0)
@@ -166,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alchemy-api-rb
   annotate
   better_errors
   binding_of_caller

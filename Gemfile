@@ -54,6 +54,9 @@ gem "koala", "~> 1.7.0rc1"
 gem 'wunderground'
 
 
+# Alchemy
+gem 'alchemy-api-rb', :require => 'alchemy_api'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

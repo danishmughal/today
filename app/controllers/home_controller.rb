@@ -38,16 +38,19 @@ class HomeController < ApplicationController
 		# Sentiment analysis for individual stories ========================
 		require 'open-uri' # uri-encoding
 		alchemykey = "ee22e9e992f73d817539a187c1c406806dac81e4"
+
+		AlchemyAPI.key = alchemykey
+
 		@sentiments = []
 
-=begin
 		counter = 0
 		@stories.each do |s|
 			if s["message"] != ""
-				textinput = URI::encode(s["message"])
-				
-				if alchemycall["docSentiment"]["type"] != "neutral" 
-					@sentiments[counter] = alchemycall["docSentiment"]["score"]
+				textinput = s["message"]
+				alchemycall = AlchemyAPI.search(:sentiment_analysis, :text => textinput)
+
+				if alchemycall["type"] != "neutral" 
+					@sentiments[counter] = alchemycall["score"]
 				else
 					@sentiments[counter] = "neutral"
 				end
@@ -74,7 +77,7 @@ class HomeController < ApplicationController
 
 		@overall_sentiment = sentimentsum / totalsentiments
 		# ======================================================================
-=end
+
 	end
 
 
