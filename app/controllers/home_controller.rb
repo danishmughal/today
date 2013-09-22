@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	def home
 		if !current_user.nil?
-			redirect_to '/feed'
+			redirect_to '/'
 		end
 	end
 
