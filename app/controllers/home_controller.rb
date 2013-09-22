@@ -40,6 +40,7 @@ class HomeController < ApplicationController
 		alchemykey = "ee22e9e992f73d817539a187c1c406806dac81e4"
 
 		@sentiments = []
+		textinput = URI::encode(s["I hate this world."])
 		alchemycall = JSON.parse(open("http://access.alchemyapi.com/calls/text/TextGetTextSentiment?apikey=#{alchemykey}&outputMode=json&text=#{textinput}").read())
 
 =begin
