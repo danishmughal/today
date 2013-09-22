@@ -41,7 +41,6 @@ class HomeController < ApplicationController
 
 		@sentiments = []
 
-=begin
 		counter = 0
 		@stories.each do |s|
 			if s["message"] != ""
@@ -76,7 +75,6 @@ class HomeController < ApplicationController
 
 		@overall_sentiment = sentimentsum / totalsentiments
 		# ======================================================================
-=end
 
 	end
 
