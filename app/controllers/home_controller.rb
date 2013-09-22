@@ -19,7 +19,7 @@ class HomeController < ApplicationController
 		@lowF = @forecast["forecast"]["simpleforecast"]["forecastday"].first["low"]["fahrenheit"]
 
 		# Stories ===========================
-		@stories = @graph.fql_query("SELECT post_id, actor_id, target_id, message FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid = me() AND type = 'newsfeed') AND type=46 LIMIT 50")
+		@stories = @graph.fql_query("SELECT post_id, actor_id, target_id, message FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid = me() AND type = 'newsfeed') AND type=46 LIMIT 25")
 
 
 		# Events =============================
