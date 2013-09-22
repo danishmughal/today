@@ -40,12 +40,13 @@ class HomeController < ApplicationController
 		alchemykey = "ee22e9e992f73d817539a187c1c406806dac81e4"
 
 		@sentiments = []
+		alchemycall = JSON.parse(open("http://access.alchemyapi.com/calls/text/TextGetTextSentiment?apikey=#{alchemykey}&outputMode=json&text=#{textinput}").read())
 
+=begin
 		counter = 0
 		@stories.each do |s|
 			if s["message"] != ""
 				textinput = URI::encode(s["message"])
-				alchemycall = JSON.parse(open("http://access.alchemyapi.com/calls/text/TextGetTextSentiment?apikey=#{alchemykey}&outputMode=json&text=#{textinput}").read())
 				
 				if alchemycall["docSentiment"]["type"] != "neutral" 
 					@sentiments[counter] = alchemycall["docSentiment"]["score"]
@@ -75,7 +76,7 @@ class HomeController < ApplicationController
 
 		@overall_sentiment = sentimentsum / totalsentiments
 		# ======================================================================
-
+=end
 	end
 
 
